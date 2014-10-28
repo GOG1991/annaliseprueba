@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title %}Aplicar para {{vacancie.title}}{% endblock %}
+{% block contenido %}
+ 
+<div class="background-m"></div>
+	<div class="header-news">
+		<div class="container">
+			<h3><span class="titlep">Aplicar para {{vacancie.title}}</span></h3>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+  			<div class="col-sm-6 col-md-9" id="entry-p">
+        <br>
+        <!--Contenido-->
+      <div class="panel panel-default">
+        <div class="panel-heading"><strong>REGISTRO DE ASPIRANTES PARA {{vacancie.title|upper}}</strong></div>
+        <div class="panel-body">
+          <form action="{% url 'aplicar' vacancie.id %}" method="post" enctype="multipart/form-data" id="frmVacantes" novalidate="novalidate">
+            {% csrf_token %}
+            {% for field in  aplicanteform %}
+             {{field.errors}}
+            <span>{{field.label_tag}}{{field}}</span><br>
+            {% endfor %}
+
+            {{aplFormset.as_p}}
+           <input type="hidden" value="{{vacancie.id}}" id="txtemp"> 
+           <span class="col-xs-10 alert alert-success" id="ok">hola</span>
+           <input class="btn btn-primary btn-lg pull-right " type="submit" value="Enviar">
+      
+         </form>
+        </div>
+      </div>  
+
+        <!--/Contenido-->
+  			</div>
+  			<div class="col-md-6 col-md-3" id="sidebar">
+  				<div class="widget">
+            <div class="header-sidebar">
+              <span>Contácto</span>
+            </div>
+            <div class="cont-sidebar">
+              <ul>
+                <li><b>Teléfono: </b>353-532-63-78</li>
+                <li><b>Dirección: </b>Calzada Revolucion 343 esq Padre Arregui, Col:Centro</li>
+                <li><b>Ciudad: </b>Sahuayo, Mich.</li>
+                <li>Correo: info@super24.com.mx</li>
+              </ul>
+            </div>
+          </div><!--/widget-->
+  					<div class="widget">
+            <div class="header-sidebar">
+              <span>Nosotros</span>
+            </div>
+            <div class="cont-sidebar">
+              <span>
+                “Somos una empresa comprometida con la satisfacción total de nuestros clientes, encontrando las 24 horas la diferencia en atención, limpieza, seguridad, variedad y rapidez en sus necesidades de compras convenientes.” 
+              </span>
+            </div>
+          </div><!--/widget-->
+  			</div>
+		</div>	
+	</div><!--/container-->
+
+{% endblock %}
+
+{% block scripts %}
+  <script src="../../../static/docs-assets/js/events/aplicantes.js"></script>
+{% endblock %}

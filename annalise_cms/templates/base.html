@@ -1,0 +1,133 @@
+{% load static from staticfiles %}
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}Super24{% endblock%}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="Tingsystems">
+		<!--===============CSS==================================-->
+		<link href="{% static "dist/css/bootstrap.css" %}" rel="stylesheet">
+    <link href="{% static "dist/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "dist/css/style.css" %}" rel="stylesheet">
+    <link href="{% static "dist/css/estilo.css" %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/> 
+     
+    	<!-- Just for debugging purposes. Don't actually copy this line! -->
+    	<!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+   		 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    	<!--[if lt IE 9]>
+    	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     	 <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+   		 <![endif]-->
+    <!-- Custom styles for this template -->
+    <link href="{% static "dist/css/carousel.css" %}" rel="stylesheet">
+    {% block css %}{% endblock %}
+    {% block js %}{% endblock %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-53554439-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+	</head>
+	<body>
+	<!--Menu-->
+	<div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" id="menu" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <div class="header-menu"><span class="menu-hd">Menú</span>
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="glyphicon glyphicon-chevron-down white"></span>
+              </button>
+              </div>
+              <div class="logo"><a href="/"><img src="{% static 'img/super24xbig.png' %}"></a></div>
+              <p class="navbar-brand" id="logo"></p>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="/">Inicio</a></li>
+                {% for m in menu %}
+                <li><a href="{{m.url}}">{{m.title}}</a></li>
+                {% endfor %}
+                <li><a href="{% url 'contacto' %}">Contácto</a></li>
+                <li><a href="{% url 'tiendas' %}">Localizador de tiendas</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li id="form"><form class="navbar-form pull-right" action="{% url 'search' %}" method="get" enctype="application/x-www-form-urlencoded">
+                  <input class="form-control" placeholder="Buscar..." type="text" name="q" value="">
+                </form></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!--Menu
+    ===============================================-->
+    {% block slider %}
+    
+      
+
+    {% endblock %}
+
+    {%block contenido %}
+    
+    
+     
+     {% endblock %}
+     {% block contenidomark %}
+     <!-- START THE FEATURETTES -->
+      
+      
+      {% endblock %}
+      
+      {% block articulos %}
+      
+      
+      {% endblock %}
+  <a href="#" class="lnkUp" id="lnkUp"><span class="glyphicon glyphicon-chevron-up"></span></a>
+   <footer class="footer">
+    <div class="container">
+      <div class="row">
+         <p><a href="{% url 'vacantes' %}">Oportunidades de empleo</a> &middot; <a href="{% url 'investors' %}">Inversionistas</a> &middot;<a href="/privacidad/">Politicas de privacidad</a> &middot; <a href="/terminos-de-uso/">Términos de uso</a></p> 
+         <p>
+           <span class="titdir">Dirección: </span> Calzada Revolucion 343 esq Padre Arregui Col. Centro Sahuayo Mich <span class="titdir">Teléfono: </span><a href="tel:3535326378"> 353-532-63-78 </a><span class="titdir">Correo </span><a href="mailto:info@super24.com.mx?Subject=Contacto del sitio web"> info@super24.com.mx</a>
+         </p>
+         <p>
+           <span>Siguenos en redes sociales </span>
+           <a href="https://twitter.com/_Super24" target="_blank"><img src="../../static/img/twitter_32.png" alt="twitter"  class="img-rounded" title="nuestra cuenta twitter"></a><span></span>
+           <a href="https://www.facebook.com/pages/Super-24/268526163335128" target="_blank"><img src="../../static/img/facebook_32.png" alt="facebook" class="img-rounded" title="nuestra cuenta en facebook"></a><span> </span>
+         </p>
+         <p>Derechos reservados © Súper 24</p> 
+         <div class="col-xs-12">
+            <p>Éste sitio fue desarrollado y diseñado por <a target="_blanck" href="http://tingsystems.com">Tingsystems</a></p>
+         </div>       
+      </div>
+    </div>
+    
+   </footer>
+
+	{% block lateral %}{% endblock %}
+
+	  <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>-->
+     <script src="../../../static/dist/js/jquery-1.10.2.min.js"></script> 
+    <script src="../../../static/dist/js/jquery.validate.js"></script> 
+    <script src="../../static/dist/js/bootstrap.min.js"></script>
+    <script src="../../static/docs-assets/js/holder.js"></script>
+    <script src="../../static/docs-assets/js/events/main.js"></script>
+     <script src="http://malsup.github.com/jquery.form.js"></script> 
+    {% block scripts %}{% endblock %}
+	</body>
+</html>

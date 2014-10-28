@@ -1,0 +1,109 @@
+.errorlist {
+  color: #f00;
+}
+.error-msj1 {
+  display: none;
+}
+.fileCurri input {
+  background-color: #f00;
+}
+.footer {
+  background-color: #244c99;
+  height: auto;
+  margin-top: 20px;
+  padding: 10px 0px 10px 0px;
+  width: 100%;
+}
+.footer .div-dir {
+  color: #fff;
+  margin-top: 0.5em;
+}
+.footer .divDer {
+  color: #fff;
+  margin-top: 2.1em;
+}
+.footer .div-social {
+  color: #fff;
+  margin-top: 1.7em;
+}
+.footer a {
+  color: #fe4e37;
+/*img
+			-webkit-filter grayscale(1)
+			-moz-filter grayscale(1)
+			-ms-filter grayscale(1)
+			-o-filter grayscale(1)
+
+			transition all 0.2s
+
+			&:hover
+				-webkit-filter grayscale(0)
+				-moz-filter grayscale(0)
+				-ms-filter grayscale(0)
+				-o-filter grayscale(0)			*/
+}
+.footer p {
+  color: #fff;
+  text-align: center;
+}
+.footer .titdir {
+  color: #ff7e33;
+  font-weight: bold;
+}
+.fondo {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: -12px;
+  padding: 8px;
+}
+.fondo div {
+  color: #244c99;
+  font-size: 17px;
+  font-weight: bold;
+}
+.fondo .title {
+  color: #ff7e33;
+  font-size: 20px;
+  font-weight: bold;
+}
+label.error {
+  color: #f00;
+}
+.lnkUp {
+  background-color: #ff7e33;
+  -webkit-border-radius: 42px;
+  border-radius: 42px;
+  bottom: 10%;
+  color: #fff;
+  display: none;
+  height: 42px;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  position: fixed;
+  right: 5px;
+  text-align: center;
+  width: 42px;
+}
+.lnkUp span {
+  margin-top: 6px;
+  vertical-align: middle;
+}
+.redesS {
+  color: #fff;
+}
+.titlep {
+  color: #5a5a5a;
+  font-weight: bold;
+}
+::-webkit-file-upload-button {
+  background: #244c99;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: none;
+  -webkit-box-shadow: 1px 1px 5px #000;
+  box-shadow: 1px 1px 5px #000;
+  color: #fff;
+  padding: 3px;
+}

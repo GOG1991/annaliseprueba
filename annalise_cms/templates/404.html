@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title %}Promociones{% endblock %}
+{% block slider %}{% endblock %}
+{% block contenido %}
+<div class="background-m"></div>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6" >
+          <div id="error-1">
+            <span>UPS...</span>
+          </div>
+          <div id="error-2">
+            <span>Error 404</span>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="pull-right" id="error-img"><img src="{% static 'img/404.png' %}"></div>
+        </div>
+        <div class="col-md-12">
+          <div id="text-error">
+            <p>Parece que ha habido un error en con la página que estabas buscando.</p>
+            <p>Es posible que la página haya sido eliminada o que no exista.</p>
+          </div>
+        </div>
+    </div>
+  </div><!--/container-->
+{% endblock %}

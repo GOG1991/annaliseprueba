@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title %} Contacto {% endblock %}
+{% block slider %}{% endblock %}
+{% block contenido %}
+<div class="background-m"></div>
+	<div class="header-news">
+		<div class="container">
+			<h3><span class="titlep">Contacto</span></h3>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+  			<div class="col-sm-6 col-md-9" id="entry-p">
+        <br>
+        <!--Contenido--> <div id="error-msj1" class="error-msj1" role="alert">
+         
+          </div>
+        <form action="{% url 'contacto' %}" method="post" id="frmContacto">{% csrf_token %}
+        	{{form.as_p}}
+         
+       <!-- 	{% if status == 1 %}
+         <div id="error-msj" class="alert" role="alert">
+          {{mensaje}}
+        </div>
+        {% elif status == 2 %}
+        <div id="error-msj" class="alert alert-warning" role="alert">
+          {{mensaje}}
+        </div>
+         {% elif status == 3 %}
+        <div id="error-msj" class="alert alert-danger" role="alert">
+          {{mensaje}}
+        </div>
+        {% endif %} -->
+        	<div id="form"><p><span id="spn-msg"></span><button type="submit" class="btn btn-danger btn-lg" id="btnFormSug">Enviar &raquo;</button></p>
+          </div>
+        </form>
+			
+        <!--/Contenido-->
+  			</div>
+  			<div class="col-md-6 col-md-3" id="sidebar">
+  				<div class="widget">
+            <div class="header-sidebar">
+              <span>Contácto</span>
+            </div>
+            <div class="cont-sidebar">
+              <ul>
+                <li><b>Teléfono: </b>353-532-63-78</li>
+                <li><b>Dirección: </b>Calzada Revolucion 343 esq Padre Arregui, Col:Centro</li>
+                <li><b>Ciudad: </b>Sahuayo, Mich.</li>
+                <li>Correo: info@super24.com.mx</li>
+              </ul>
+            </div>
+          </div><!--/widget-->
+  					<div class="widget">
+            <div class="header-sidebar">
+              <span>Nosotros</span>
+            </div>
+            <div class="cont-sidebar">
+              <span>
+                “Somos una empresa comprometida con la satisfacción total de nuestros clientes, encontrando las 24 horas la diferencia en atención, limpieza, seguridad, variedad y rapidez en sus necesidades de compras convenientes.” 
+              </span>
+            </div>
+          </div><!--/widget-->
+  			</div>
+		</div>	
+	</div><!--/container-->
+{% endblock %}

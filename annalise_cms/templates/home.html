@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block slider %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner">
+      {%for banner in banners %}
+      {% if forloop.first %}
+          <div class="item active" >
+          {% else %}
+          <div class="item" >
+          {% endif %}
+            <a href="{{banner.slug}}.html">
+                <img src="/media/{{banner.imgDestacada}}"  alt="First slide">
+             </a>
+            <div class="container">
+             <div class="carousel-caption">
+               <!--<h1>{{banner.titulo}}</h1>-->
+              <p></p>
+            </div>
+          </div>
+         </div>
+        {% empty %}
+      {% endfor %}
+      </div>
+      <!--Controlls-->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>
+{% endblock %}
+{% block contenido %}
+	<h1>{{flatpage.title}}</h1>
+	<p>{{ flatpage.content }}</p>
+  <div class="container marketing">
+   <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+        <a href="{% url 'promociones' %}">
+          <img class="img-circle" src="../../static/img/promo2.0.png" alt="Promociones">
+          </a>
+          <h2>Promociones</h2>
+          <p>Conoce todas las promociones exclusivas que tenemos para ti con los mejores precios</p>
+          <p><a class="btn btn-danger" href="{% url 'promociones' %}" role="button">+ Información &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <a href="{% url 'products' %}">
+            <img class="img-circle" src="../../static/img/productos.png" alt="Productos">
+          </a>
+          <h2>Productos</h2>
+          <p>Vicitanos y conoce nuestros productos, tenemos los mejores exclusivamente para ti.</p>
+          <p><a class="btn btn-danger" href="{% url 'products' %}" role="button">+ Información &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+
+          <a href="{% url 'tiendas' %}">
+             <img class="img-circle" src="../../static/img/ubic.png" alt="Localizador de tiendas">
+          </a>
+          <h2>Localizador de tiendas</h2>
+          <p>Localice la tienda Super 24 que se encuentre más cercas de su hogar.</p>
+          <p><a class="btn btn-danger" href="{% url 'tiendas' %}" role="button">+ Información &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+{% endblock %}
+{% block contenidomark %}
+<div class="container marketing" id="sugerencias">
+  <div id="error-msj1" class="error-msj1" role="alert">
+           
+  </div>
+<form action="{% url 'index' %}" method="post" id="frmSug">
+  {% csrf_token %}
+ <h2>Buzón de quejas y sugerencias</h2>
+      <br>
+        <div class="row">
+         
+          <div class="col-md-4">
+          <label>Nombre</label>
+            {{form.nombre}}
+          </div>
+          <div class="col-md-4">
+          <label>Correo</label>
+            {{form.correo}}
+          </div>
+          <div class="col-md-4">
+          <label>Comentario</label>
+            {{form.comentario}}
+          </div>
+        </div>
+        
+        <!--{% if status == 1 %}
+         <div id="error-msj" class="alert alert-success" role="alert">
+          {{mensaje}}
+        </div>
+        {% elif status == 2 %}
+        <div id="error-msj" class="alert alert-warning" role="alert">
+          {{mensaje}}
+        </div>
+         {% elif status == 3 %}
+        <div id="error-msj" class="alert alert-danger" role="alert">
+          {{mensaje}}
+        </div>
+        {% endif %}-->
+         <div id="form"><p><span id="spn-msg"></span><button type="submit" class="btn btn-danger btn-lg" id="btnQja">Enviar &raquo;</button></p>
+         </div>
+  </form>
+  </div><!--/container-->
+{% endblock %}
+{% block articulos %}
+  <div class="container">
+      <div id="header-promo">
+      <h2>Promociones recientes</h2>
+      </div>
+        <div class="row" id="promo-style">
+          {%for noticia in noticias %}
+          <div class="col-md-4" id="news">
+            <a href="{% url 'single' noticia.slug %}"><img id="response-img" class="img-thumbnail featurette-image img-responsive" src="/media/{{noticia.imgDestacada}}"></a>
+            <h3><a href="{% url 'single' noticia.slug %}">{{ noticia.titulo}}</a></h3>
+            <p>{{ noticia.contenido|safe|escape|truncatewords:'10' }}</p>
+          </div>
+          {% empty %}
+      {% endfor %}
+        </div>
+      </div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title %}Blog{% endblock %}
+{% block slider %}{% endblock %}
+{% block contenido %}
+<div class="background-m"></div>
+	<div class="header-news">
+		<div class="container">
+			<h3>Noticias</h3>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+  			<div class="col-xs-12 col-sm-6 col-md-9" id="entry-p">
+        {% if news_list %}
+  				{% for e in news %}
+				<div class="row" id="entry">
+  					<div class="col-md-2">
+  						<div class="image-entry">
+  							<img class="featurette-image img-responsive" src="/media/{{e.imgDestacada}}" alt="Generic placeholder image">
+  						</div>
+  					</div>
+ 					<div class="col-md-10" id="news-entry">
+ 						<a href="{% url 'single' e.slug %}"><h3>{{e.titulo}}</h3></a>
+						{{e.contenido|safe|escape|truncatewords:'30'}}
+						<a href="{% url 'single' e.slug %}">Ver más</a>
+					</div>
+				</div><!--row-->
+				{% endfor %}
+        <ul class="pagination">
+        {% if news.has_previous %}
+            <li><a href="?page={{ news.previous_page_number }}">Anterior</a></li>
+             {% endif %}
+
+        <li><a href="#">Página {{ news.number }}</a></li>
+
+        {% if news.has_next %}
+            <li><a href="?page={{ news.next_page_number }}">Siguiente</a></li>
+        {% endif %}
+        </ul>
+        {% else %}
+        <p>No hay contenido</p>
+        {% endif %}
+  			</div>
+  			<div class="col-md-6 col-md-3" id="sidebar">
+  				<div class="widget">
+  					<div class="header-sidebar">
+  						<span>Atencion al cliente</span>
+  					</div>
+  					<div class="cont-sidebar">
+  						<ul>
+  							<li><b>Teléfono: </b>353-532-63-78</li>
+  							<li><b>Dirección: </b>Calzada Revolucion 343 esq Padre Arregui, Col:Centro</li>
+                <li><b>Ciudad: </b>Sahuayo, Mich.</li>
+  							<li>Correo: info@super24.com.mx</li>
+  						</ul>
+  					</div>
+  				</div><!--widget-->
+  				<div class="widget">
+            <div class="header-sidebar">
+              <span>Nosotros</span>
+            </div>
+            <div class="cont-sidebar">
+              <span>
+                “Somos una empresa comprometida con la satisfacción total de nuestros clientes, encontrando las 24 horas la diferencia en atención, limpieza, seguridad, variedad y rapidez en sus necesidades de compras convenientes.” 
+              </span>
+            </div>
+          </div><!--/widget-->
+  			</div>
+		</div>	
+	</div><!--/container-->
+
+{% endblock %}

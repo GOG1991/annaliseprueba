@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title %} Resultados de la busqueda {% endblock %}
+{% block slider %}{% endblock %}
+{% block contenido %}
+<div class="background-m"></div>
+	<div class="header-news">
+		<div class="container">
+			<h3><span class="titlep">Resultados para:</span> {{value}} </h3>
+		</div>
+	</div>
+		<div class="container">
+		<div class="row">
+  			<div class="col-sm-6 col-md-9" id="entry-p">
+        {% if resultados_list %}
+  				{% for entrada in resultados %}
+				      <div class="row" id="entry">
+  					     <div class="col-md-2">
+  						      <div class="image-entry">
+  							     <img class="featurette-image img-responsive size" src="/media/{{entrada.imgDestacada}}" alt="Generic placeholder image">
+  						      </div>
+  					     </div>
+ 					      <div class="col-md-10" id="news-entry">
+ 						     <a href=" {% url 'single' entrada.slug %}"><h3>{{entrada.titulo}}</h3></a>
+						      {{entrada.contenido|safe}}
+					     </div>
+				      </div><!--row-->
+				  {% endfor %}
+          		    <ul class="pagination">
+                    {% if path %}
+                		    {% if resultados.has_previous %}
+                   		   <li><a href="?{{ path }}&amp;page={{ resultados.previous_page_number }}">Anterior</a></li>
+                		    {% endif %}
+
+                        {% for num in resultados.paginator.page_range %}
+                          {% ifequal num resultados.number %}
+                            <li><a href="">Página {{page}}</a></li>
+                          {% else %}
+                              <li><a href="?{{path}}&amp;page={{num}}">{{num}}</a></li>
+                              {% endifequal %}
+                        {% endfor %}
+
+                        {% if resultados.has_next %}
+                          <li><a href="?{{ path }}&amp;page={{resultados.next_page_number}}">Siguiente</a></li>
+                          {% endif %}
+
+                    {% else %}
+
+                      {% if resultados.has_previous %}
+                        <li><a href="?page={{resultados.previous_page_number}}">Anterior</a></li>
+                      {% endif %}
+                      {% for num in resultados.paginator.page_range %}
+                        {% ifequal num resultados.number %}
+                          <li><a href="">{{num}}</a></li> 
+                        {% else %}
+                          <li><a href="?page={{num}}">{{num}}</a></li>
+                       {% endifequal %}
+                      {% endfor %}
+
+                      {% if resultados.has_next %}
+                      <li><a href="?page={{resultados.next_page_number}}">Siguiente</a></li>
+                    {% endif %}
+                  {% endif %}
+    				    </ul>
+            {% else %}
+            {# Si no se encontraron resultados #}
+            <div class="row">
+                 <div class="col-md-12">
+                    <div id="error-msj" class="alert alert-danger" role="alert">
+                      <p>Lo sentimos, no se a encontrado ningun resultado con: {{value}} </p>
+                    </div><!--row-->            
+                  </div>
+            </div>
+            {% endif %}
+        </div>
+  			<div class="col-md-6 col-md-3" id="sidebar">
+  				<div class="widget">
+  					<div class="header-sidebar">
+  						<span>Contácto</span>
+  					</div>
+  					<div class="cont-sidebar">
+  						<ul>
+  							<li><b>Teléfono: </b>353-532-63-78</li>
+                <li><b>Dirección: </b>Calzada Revolucion 343 esq Padre Arregui, Col:Centro</li>
+                <li><b>Ciudad: </b>Sahuayo, Mich.</li>
+                <li>Correo: info@super24.com.mx</li>
+  						</ul>
+  					</div>
+  				</div><!--/widget-->
+  				<div class="widget">
+  					<div class="header-sidebar">
+  						<span>Nosotros</span>
+  					</div>
+  					<div class="cont-sidebar">
+  						<span>
+  						 “Somos una empresa comprometida con la satisfacción total de nuestros clientes, encontrando las 24 horas la diferencia en atención, limpieza, seguridad, variedad y rapidez en sus necesidades de compras convenientes.” 
+  						</span>
+  					</div>
+  				</div><!--/widget-->
+  			</div>
+		</div>	
+	</div><!--/container-->
+{% endblock %}

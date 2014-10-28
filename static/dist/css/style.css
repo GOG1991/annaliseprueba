@@ -1,0 +1,218 @@
+/*!
+ * Bootstrap v3.0.3 (http://getbootstrap.com)
+ * Copyright 2013 Twitter, Inc.
+ * Licensed under http://www.apache.org/licenses/LICENSE-2.0
+ */
+
+/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
+
+.size{
+	
+}
+
+#map h4{
+	color: #FE4E37
+}
+
+.logo{
+	position: absolute;
+	z-index: 8000;
+	margin-top: -15px;
+	margin-left: -18px;
+}
+
+.logo img{
+	width: 102px;
+	height: 101px;
+}
+
+#logo{
+	padding-left: 90px;
+}
+
+#menu{
+	/*padding-bottom: 10px;
+	padding-top: 10px;*/
+}
+
+
+#social-media img{
+   margin-top:15px;
+}
+
+#form{
+	margin-top: 8px;
+}
+
+#social-media ul{
+   list-style-type: none;
+}
+#social-media li{
+   display: inline;
+   /*margin: 0 10px 0 0;*/
+}
+
+
+#form p{
+	margin-top: 20px;
+	text-align: center;
+}
+
+
+#sugerencias{
+	background-color: #f0f0f0;
+	width: 100%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 100px;
+	padding-right: 100px;
+	margin-bottom: 60px;
+}
+/*----------Noticias recientes------------*/
+#news h3{
+	color: #fe4e37;
+}
+
+#news p{
+	text-align: justify;
+	font-size: 16px;
+}
+
+#news img{
+	margin: auto;
+}
+#news a{
+	color: #fe4e37;
+}
+
+#news a:hover{
+	color: #244c99;
+}
+
+
+/*------------/Footer-------------------*/
+
+#footer {
+	padding-top: 10px;
+	padding-bottom: 10px;
+    height: auto;
+    background-color: #244c99;
+    margin-top: 20px;
+}
+
+#footer p{
+	color: #fff;
+	text-align: center;
+}
+
+#footer a{
+	color: #FE4E37;
+}
+
+.menu-hd{
+	display: none;
+}
+<<<<<<< HEAD
+/*Style Blog
+=====================================================*/
+.background-m{
+	background: #244C99;
+	padding: 55px;
+}
+
+.header-news{
+	padding: 10px;
+	background: #D8D8D8;
+}
+
+.image-entry{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#news-entry>p>span{
+	font-size: 14px !important;
+	text-align: justify !important;
+}
+
+#news-entry a{
+	color: #FE4E37;
+}
+
+#news-entry a:hover, a:focus{
+	color: #244C99;
+}
+
+#entry{
+	border-bottom: 1px solid #D8D8D8;
+}
+
+#entry>span>p{
+	font-size: 20px!important;
+}
+
+#entry-p{
+	padding-right: 2.5em;
+}
+
+/*sidebar
+=====================================================*/
+
+#sidebar{
+	margin-top: 20px;
+	padding-right: 2.5em;
+	border-left: 1px solid #D8D8D8;
+}
+.header-sidebar{
+	font-size: 20px;
+	border-bottom: 1px solid #D8D8D8;
+}
+
+.cont-sidebar {
+	padding: 3px;
+	text-align: justify;
+}
+
+
+.cont-sidebar li{
+	font-size: 16px;
+	list-style-type: none;
+	margin-left:  -40px;
+	position: relative;
+	line-height: 25px;
+}
+
+.background-m{
+	padding: 60px;
+	background-color: #244C99;
+}
+/*================img-responsive-home
+======================================================================*/
+#response-img{
+	display: block;
+	max-width: 100%;
+	height: 200px;
+}
+/*===============Alerts msj
+======================================================================*/
+#error-msj{
+	margin-top: 30px;
+}
+
+#error-1 span{
+	font-size: 185px;
+}
+
+#error-2 span{
+	font-size: 133px;
+	color: #FF7E33;
+}
+
+#text-error p{
+	font-size: 35px;
+	text-align: center;
+}
+
+#error-img img{
+	margin-top: 30px;
+}

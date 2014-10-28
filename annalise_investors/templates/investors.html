@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title %} Inversionistas {% endblock %}
+{% block css %}
+{% endblock %}
+{% block slider %}{% endblock %}
+{% block contenido %}
+<div class="background-m"></div>
+	<div class="header-news">
+		<div class="container">
+			<h3><span class="titlep">Inversionistas</span></h3>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+  			<div class="col-xs-12 col-sm-6 col-md-9" id="entry-p">
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-heading"><strong>REGISTRO DE SOLICITUD DE INVERSIONISTAS</strong></div>
+            <div class="panel-body">
+            <!--Contenido-->
+		      <form action="{% url 'investors' %}" method="post" id="frmInv">{% csrf_token %}
+                <span style="color: red;">{{form.nombres.errors}}</span>
+                <span>{{form.nombres}}</span><br>
+                <span style="color: red;">{{form.apPaterno.errors}}</span>
+                <span >{{form.apPaterno}}</span><br>
+                <span style="color: red;">{{form.apMaterno.errors}}</span>
+                <span>{{form.apMaterno}}</span><br>
+                <span style="color: red;">{{form.genero.errors}}</span>
+                <label>Genero*</label>
+                <span>{{form.genero}}</span><br>
+                <span style="color: red;">{{form.fechNacimiento.errors}}</span>
+                <span>{{form.fechNacimiento}}</span><br>
+                <label>Pais*</label>
+                <span style="color: red;">{{form.pais.errors}}</span>
+                <span>{{form.pais}}</span><br>
+                <label>Estado*</label>
+                <span style="color: red;">{{form.estadoPais.errors}}</span>
+                <span>{{form.estadoPais}}</span><br>
+                <label>Ciudad*</label>
+                <span style="color: red;">{{form.ciudad.errors}}</span>
+                <span>{{form.ciudad}}</span><br>
+                <label>Estado civil*</label>
+                <span style="color: red;">{{form.estadoCivil.errors}}</span>
+                <span>{{form.estadoCivil}}</span><br>
+                <span style="color: red;">{{form.curp.errors}}</span>
+                <span>{{form.curp}}</span><br>
+                <span style="color: red;">{{form.imss.errors}}</span>
+                <span>{{form.imss}}</span><br>
+                <span style="color: red;">{{form.numHijos.errors}}</span>
+                <span>{{form.numHijos}}</span><br>
+                <span style="color: red;">{{form.colonia.errors}}</span>
+                <span>{{form.colonia}}</span><br>
+                <span style="color: red;">{{form.calle.errors}}</span>
+                <span>{{form.calle}}</span><br>
+                <span style="color: red;">{{form.numExterior.errors}}</span>
+                <span>{{form.numExterior}}</span><br>
+                <span style="color: red;">{{form.numInterior.errors}}</span>
+                <span>{{form.numInterior}}</span><br>
+                <span style="color: red;">{{form.telCasa.errors}}</span>
+                <span>{{form.telCasa}}</span><br>
+                <span style="color: red;">{{form.celular.errors}}</span>
+                <span>{{form.celular}}</span><br>
+                <label>Contacto principal*</label>
+                <span style="color: red;">{{form.contPrim.errors}}</span>
+                <span>{{form.contPrim}}</span><br>
+                <label>Segundo contacto*</label>
+                <span style="color: red;">{{form.contSec.errors}}</span>
+                <span>{{form.contSec}}</span><br>
+                 <span class="col-xs-1 col-xs-offset-9 spn-msj" id="spn-msj"></span>
+                <input class="btn btn-primary btn-lg pull-right " type="submit" value="Registrar">
+             </div>
+        </div>
+		</form>
+        <!--/Contenido-->
+  			</div>
+  			<div class="col-md-6 col-md-3" id="sidebar">
+  				<div class="widget">
+            <div class="header-sidebar">
+              <span>Contácto</span>
+            </div>
+            <div class="cont-sidebar">
+              <ul>
+                <li><b>Teléfono: </b>353-532-63-78</li>
+                <li><b>Dirección: </b>Calzada Revolucion 343 esq Padre Arregui, Col:Centro</li>
+                <li><b>Ciudad: </b>Sahuayo, Mich.</li>
+                <li>Correo: info@super24.com.mx</li>
+              </ul>
+            </div>
+          </div><!--/widget-->
+  					<div class="widget">
+            <div class="header-sidebar">
+              <span>Nosotros</span>
+            </div>
+            <div class="cont-sidebar">
+              <span>
+                “Somos una empresa comprometida con la satisfacción total de nuestros clientes, encontrando las 24 horas la diferencia en atención, limpieza, seguridad, variedad y rapidez en sus necesidades de compras convenientes.” 
+              </span>
+            </div>
+          </div><!--/widget-->
+  			</div>
+		</div>	
+	</div><!--/container-->
+{% endblock %}

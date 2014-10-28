@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block title %} Localizador de tiendas {% endblock %}
+{% block css %} 
+<style type="text/css">
+#map1 {
+    width:100%;
+    height:300px;
+}
+
+#map2 {
+    width:100%;
+    height:300px;
+}
+
+#map3 {
+    width:100%;
+    height:300px;
+}
+</style>
+{% endblock %}
+{% block js %}
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFhb_-JlZrUL570lFcRr_Z2GMtz_ODwHM&sensor=true&language=es">
+</script>
+<script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(20.04982769629865,-102.71656958902435),
+          zoom: 17
+        };
+
+        var mapOptions2 = {
+          center: new google.maps.LatLng(20.041784757075426,-102.71670906389312),
+          zoom: 17
+        };
+
+         var mapOptions3 = {
+          center: new google.maps.LatLng(20.0632103,-102.721542),
+          zoom: 17
+        };
+        var map1 = new google.maps.Map(document.getElementById("map1"),mapOptions);
+        var map2 = new google.maps.Map(document.getElementById("map2"),mapOptions2);
+        var map3 = new google.maps.Map(document.getElementById("map3"),mapOptions3);
+
+        var marker = new google.maps.Marker({
+          position: map1.getCenter(),
+          map: map1, 
+          title: 'Tienda 1',
+          draggable: true
+        });
+
+        var marker2 = new google.maps.Marker({
+          position: map2.getCenter(),
+          map: map2, 
+          title: 'Tienda 2',
+          draggable: true
+        });
+
+        var marker3 = new google.maps.Marker({
+          position: map3.getCenter(),
+          map: map3, 
+          title: 'Tienda 3',
+          draggable: true
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+{% endblock%}
+{% block slider %}{% endblock %}
+{% block contenido %}
+<div class="background-m"></div>
+	<div class="header-news">
+		<div class="container">
+			<h3><span class="titlep">Tiendas</span></h3>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+  			<div class="col-sm-6 col-md-9" id="entry-p">
+        <br>
+  			<!--Contenido-->
+         <div class="col-md-4" id="map">
+            <h4>Sucursal Sahuayo, Mich.</h4>
+            <p><b>Dirección: </b>Lazaro Cardenas 1252 sur, Colonia: Prados Verdes.</p>
+            <div id="map1"></div>
+         </div>
+         <div class="col-md-4" id="map">
+            <h4>Sucursal Sahuayo, Mich.</h4>
+            <p><b>Dirección: </b>Lazaro cardenas 350 sur, Colonia: Noria de Montes.</p>
+            <div id="map2"></div>
+         </div>
+         <div class="col-md-4" id="map">
+            <h4>Matriz Sahuayo, Mich.</h4>
+            <p><b>Dirección: </b>Calzada Revolucion 343 esq Padre Arregui, Colonia:Centro.</p>
+            <div id="map3"></div>
+         </div>
+        <!--/Contenido-->
+  			</div>
+  			<div class="col-md-6 col-md-3" id="sidebar">
+  				<div class="widget">
+  					<div class="header-sidebar">
+  						<span>Contácto</span>
+  					</div>
+  					<div class="cont-sidebar">
+  						<ul>
+  							<li><b>Teléfono: </b>353-532-63-78</li>
+                <li><b>Dirección: </b>Calzada Revolucion 343 esq Padre Arregui, Col:Centro</li>
+                <li><b>Ciudad: </b>Sahuayo, Mich.</li>
+                <li>Correo: info@super24.com.mx</li>
+  						</ul>
+  					</div>
+  				</div><!--/widget-->
+  				<div class="widget">
+  					<div class="header-sidebar">
+  						<span>Nosotros</span>
+  					</div>
+  					<div class="cont-sidebar">
+  						<span>
+  							“Somos una empresa comprometida con la satisfacción total de nuestros clientes, encontrando las 24 horas la diferencia en atención, limpieza, seguridad, variedad y rapidez en sus necesidades de compras convenientes.” 
+  						</span>
+  					</div>
+  				</div><!--/widget-->
+  			</div>
+		</div>	
+	</div><!--/container-->
+{% endblock %}
