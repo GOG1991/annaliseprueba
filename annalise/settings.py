@@ -76,9 +76,9 @@ WSGI_APPLICATION = 'annalise.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 's24site0907',
-        'USER': 'sup24app',
-        'PASSWORD':'n3Lkss55',
+        'NAME': 'aserdb080815',
+        'USER':'aser_adminbd20',
+        'PASSWORD':'JUvX8O08',
         'HOST': 'localhost',
     }
 }
